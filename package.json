@@ -1,13 +1,12 @@
 {
-  "name": "encrypted-chat-tutorial",
+  "name": "chat-app-js",
   "version": "1.0.0",
-  "node": "8.1.4",
+  "node": "16.17.0",
   "license": "MIT",
-  "author": "patrick.triest@gmail.com",
   "description": "End-to-end RSA-256 encrypted chat application.",
   "main": "app.js",
   "engines": {
-    "node": ">=7.6"
+    "node": ">=12.1"
   },
   "scripts": {
     "start": "node app.js"
