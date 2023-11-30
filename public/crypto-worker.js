@@ -1,6 +1,5 @@
-self.window = self; // This is required for the jsencrypt library to work within the webworker
+self.window = self;
 
-// Import the jsencrypt library
 self.importScripts(
   "https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.min.js"
 );
@@ -8,7 +7,6 @@ self.importScripts(
 let crypt = null;
 let privateKey = null;
 
-/** Webworker onmessage listener */
 onmessage = function (e) {
   const [messageType, messageId, text, key] = e.data;
   let result;
@@ -24,7 +22,6 @@ onmessage = function (e) {
       break;
   }
 
-  // Return result to the UI thread
   postMessage([messageId, result]);
 };
 
@@ -35,7 +32,6 @@ function gcd(a, b) {
   return gcd(b, a % b);
 }
 
-// Function to calculate modular inverse
 function modInverse(e, phi) {
   let d = 0;
   let x1 = 0;
@@ -84,16 +80,9 @@ function generateRandomPrime(min, max) {
 
 /** Generate and store keypair */
 function generateKeypair() {
-  // crypt = new JSEncrypt({default_key_size: 2056})
-  // privateKey = crypt.getPrivateKey()
+  const min = 50;
+  const max = 512;
 
-  // // Only return the public key, keep the private key hidden
-  // return crypt.getPublicKey();
-
-  const min = 50; // Minimum value for the prime numbers
-  const max = 512; // Maximum value for the prime numbers
-
-  // Generate random prime numbers 'p' and 'q'
   const p = generateRandomPrime(min, max);
   const q = generateRandomPrime(min, max);
 
@@ -101,7 +90,6 @@ function generateKeypair() {
   const phi = (p - 1) * (q - 1);
   let e = 2;
 
-  // Choosing e such that it is coprime with phi(n)
   while (e < phi) {
     if (gcd(e, phi) === 1) {
       break;
@@ -110,7 +98,6 @@ function generateKeypair() {
     }
   }
 
-  // Calculating private key (d)
   const d = modInverse(e, phi);
 
   privateKey = { d, n };
@@ -118,11 +105,7 @@ function generateKeypair() {
   return { e, n };
 }
 
-/** Encrypt the provided string with the destination public key */
 function encrypt(content, publicKey) {
-  // crypt.setKey(publicKey)
-  // return crypt.encrypt(content)
-
   const { e, n } = publicKey;
   const encryptedMessage = content.split("").map((char) => {
     const charCode = char.charCodeAt(0);
@@ -131,11 +114,7 @@ function encrypt(content, publicKey) {
   return encryptedMessage.toString();
 }
 
-/** Decrypt the provided string with the local private key */
 function decrypt(content) {
-  // crypt.setKey(privateKey)
-  // return crypt.decrypt(content)
-
   const { d, n } = privateKey;
   const decryptedMessage = content.split(",").map((charCode) => {
     const decrypted = BigInt(charCode) ** BigInt(d) % BigInt(n);
