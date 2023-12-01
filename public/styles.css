@@ -8,35 +8,72 @@
 body {
   background: var(--black);
   color: var(--light-grey);
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   height: 100vh;
   display: flex;
   padding: 0;
   margin: 0;
 }
 
-div { box-sizing: border-box; }
-input, textarea, select { font-family: inherit; font-size: small; }
-textarea:focus, input:focus { outline: none; }
+div {
+  box-sizing: border-box;
+}
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: small;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
 
-.full-width { width: 100%; }
-.green { color: green; }
-.red { color: red; }
-.yellow { color: yellow; }
-.center-x { margin: 0 auto; }
-.center-text { width: 100%; text-align: center; }
+.full-width {
+  width: 100%;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+.yellow {
+  color: yellow;
+}
+.center-x {
+  margin: 0 auto;
+}
+.center-text {
+  width: 100%;
+  text-align: center;
+}
 
-h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
-h1 { font-size: medium; }
-h2 { font-size: small; font-weight: 300; }
-h3 { font-size: x-small; font-weight: 300; }
-p { font-size: x-small; }
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  font-size: medium;
+}
+h2 {
+  font-size: small;
+  font-weight: 300;
+}
+h3 {
+  font-size: x-small;
+  font-weight: 300;
+}
+p {
+  font-size: x-small;
+}
 
 .clearfix:after {
-   visibility: hidden;
-   display: block;
-   height: 0;
-   clear: both;
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
 }
 
 #vue-instance {
@@ -56,9 +93,11 @@ p { font-size: x-small; }
   margin-bottom: 50px;
 }
 
-.message > p { font-size: small; }
+.message > p {
+  font-size: small;
+}
 .title-header > p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
@@ -94,7 +133,7 @@ p { font-size: x-small; }
 }
 
 .notification {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: small;
   padding: 4px 0;
@@ -106,7 +145,9 @@ p { font-size: x-small; }
   padding-right: 12px;
 }
 
-.notification-message { flex: 0 0 80%; }
+.notification-message {
+  flex: 0 0 80%;
+}
 .notification:last-child {
   margin-bottom: 24px;
 }
@@ -124,24 +165,26 @@ p { font-size: x-small; }
   margin: 16px auto;
 }
 
-.key { overflow: scroll; }
+.key {
+  overflow: scroll;
+}
 
 .room-select {
   display: flex;
   min-height: 24px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
 #room-input {
-    flex: 0 0 60%;
-    background: none;
-    border: none;
-    border-bottom: 1px solid var(--light-grey);
-    border-top: 1px solid var(--light-grey);
-    border-left: 1px solid var(--light-grey);
-    color: var(--light-grey);
-    padding: 4px;
+  flex: 0 0 60%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--light-grey);
+  border-top: 1px solid var(--light-grey);
+  border-left: 1px solid var(--light-grey);
+  color: var(--light-grey);
+  padding: 4px;
 }
 
 .yellow-button {
@@ -157,20 +200,26 @@ p { font-size: x-small; }
   color: var(--black);
 }
 
-.yellow > a { color: var(--highlight); }
+.yellow > a {
+  color: var(--highlight);
+}
 
 .loader {
-    border: 4px solid black;
-    border-top: 4px solid var(--highlight);
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    animation: spin 2s linear infinite;
+  border: 4px solid black;
+  border-top: 4px solid var(--highlight);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Message Input Bar */
