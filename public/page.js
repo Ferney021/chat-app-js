@@ -24,7 +24,7 @@ const vm = new Vue({
       `Par de llaves generadas - ${this.getKeySnippet(this.originPublicKey)}`
     );
 
-    this.socket = io("http://192.168.1.5:3000");
+    this.socket = io("http://10.203.3.105:3000");
     this.setupSocketListeners();
   },
   methods: {

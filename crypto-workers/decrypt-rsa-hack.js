@@ -88,8 +88,8 @@ function decrypt(content, privateKey) {
   return decryptedMessage.join("");
 }
 
-const n_public_key = 8453;
-const message = "6612,688,1881,2339,6612,688,7782,7168,7782";
+const n_public_key = 181879;
+const message = "167683,146581,120906,32768,105864,3278,168438,68168";
 
 const primePairs = findPrimePairs(n_public_key);
 console.log(`Parejas de números primos que multiplican ${n_public_key}:`);

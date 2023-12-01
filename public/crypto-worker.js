@@ -81,7 +81,7 @@ function generateRandomPrime(min, max) {
 /** Generate and store keypair */
 function generateKeypair() {
   const min = 50;
-  const max = 512;
+  const max = 1024;
 
   const p = generateRandomPrime(min, max);
   const q = generateRandomPrime(min, max);
